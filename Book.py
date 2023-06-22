@@ -2,6 +2,11 @@
 
 
 class Book:
+
+    """
+    Book class is reponsible for creating book objects.
+    It also has methods to check if a book is available, update its availability and display its information.
+    """
     def __init__(self, title, author, year, isbn, NumberOfCopies=0):
         self._title = title
         self._author = author
@@ -53,14 +58,27 @@ class Book:
             raise ValueError("ISBN cannot be empty.")
         self._isbn = isbn
 
+    @property
+    def isAvailable(self):
+        return self._isAvailable
+    
+    @isAvailable.setter
+    def isAvailable(self, isAvailable):
+        self._isAvailable = bool(isAvailable)
+
     
     # Methods
+    # Check if a book is available
+    def check_availability(self, book):
+        if book.isAvailable:
+            return True
+        else:
+            return False
+        
+    # Update the availability of a book
+    def update_availability(self, book):
+        book.isAvailable = not book.isAvailable
 
-    def check_availability(self):
-        pass
-
-    def update_availability(self):
-        pass
-
+    # Display book information
     def display_info(self):
-        pass
+        return f"Title: {self._title}\nAuthor: {self._author}\nYear: {self._year}\nISBN: {self._isbn}\nAvailable: {self._isAvailable}\nNumber of copies: {self.numberOfCopies}\n"
