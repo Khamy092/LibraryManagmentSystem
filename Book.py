@@ -69,8 +69,8 @@ class Book:
     
     # Methods
     # Check if a book is available
-    def check_availability(self, book):
-        if book.isAvailable:
+    def check_availability(self):
+        if self.isAvailable:
             return True
         else:
             return False
@@ -81,4 +81,4 @@ class Book:
 
     # Display book information
     def display_info(self):
-        return f"Title: {self._title}\nAuthor: {self._author}\nYear: {self._year}\nISBN: {self._isbn}\nAvailable: {self._isAvailable}\nNumber of copies: {self.numberOfCopies}\n"
+        return f"Title: {self._title}\nAuthor: {self._author}\nYear: {self._year}\nISBN: {self._isbn}\nAvailable: {self._isAvailable}\nNumber of copies: {self.numberOfCopies}"
